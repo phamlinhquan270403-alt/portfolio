@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #ffffff;
+  --color-ink: #000000;
+  --color-muted: #6b6b6b;
+  --color-link: #0000ee;
+  --color-accent: #ff2a00;
+  /* One Helvetica-style family everywhere, like the reference portfolio. */
+  --font-display: var(--font-inter-tight), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-inter-tight), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-inter-tight), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Plain hyperlinks, like the old web. */
+.raw-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.raw-link:hover {
+  background: var(--color-link);
+  color: var(--color-paper);
+}
+
+/* Scroll reveal (see components/Reveal.tsx). */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+.reveal[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stats ticker. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: blink 1.4s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee,
+  .blink {
+    animation: none;
+  }
+}
