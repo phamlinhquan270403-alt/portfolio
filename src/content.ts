@@ -78,6 +78,20 @@ export const work: WorkGroup[] = [
     ],
   },
   {
+    id: "ai-higgsfield",
+    title: "AI videos / Higgsfield",
+    meta: "AI-generated video · Higgsfield · 2026",
+    description: "Selected AI video work created with Higgsfield, from short-form hooks to longer visual storytelling pieces.",
+    videos: [
+      { slug: "ai-ad-hook-01", title: "Ad hook 01", tag: "AI video" },
+      { slug: "ai-ad-hook-02", title: "Ad hook 02", tag: "AI video" },
+      { slug: "ai-mwh-16", title: "MWH #16", tag: "AI video" },
+      { slug: "ai-mwh-17", title: "MWH #17", tag: "AI video" },
+      { slug: "ai-mwh-18", title: "MWH #18", tag: "AI video" },
+      { slug: "ai-mwh-19", title: "MWH #19", tag: "AI video" },
+    ],
+  },
+  {
     id: "ads",
     title: "Ads & product shorts",
     meta: "Client work · short-form",
@@ -246,6 +260,20 @@ export const localizedContent: Record<Locale, PortfolioContent> = {
           { slug: "bashi-152", title: "Bashiri Smith", tag: "Reel" },
           { slug: "bashi-156", title: "Bashiri Smith", tag: "Reel" },
           { slug: "justin-biggest-month", title: "Justin Phan", tag: "Video", orientation: "horizontal" },
+        ],
+      },
+      {
+        id: "ai-higgsfield",
+        title: "Video AI / Higgsfield",
+        meta: "Video tạo bằng AI · Higgsfield · 2026",
+        description: "Các video AI tiêu biểu tạo bằng Higgsfield, từ hook video ngắn đến các tác phẩm kể chuyện hình ảnh dài hơn.",
+        videos: [
+          { slug: "ai-ad-hook-01", title: "Ad hook 01", tag: "Video AI" },
+          { slug: "ai-ad-hook-02", title: "Ad hook 02", tag: "Video AI" },
+          { slug: "ai-mwh-16", title: "MWH #16", tag: "Video AI" },
+          { slug: "ai-mwh-17", title: "MWH #17", tag: "Video AI" },
+          { slug: "ai-mwh-18", title: "MWH #18", tag: "Video AI" },
+          { slug: "ai-mwh-19", title: "MWH #19", tag: "Video AI" },
         ],
       },
       {
