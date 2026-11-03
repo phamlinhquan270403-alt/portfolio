@@ -42,6 +42,32 @@ export function VideoCard({
     return () => window.removeEventListener(SOUND_EVENT, onOtherSound);
   }, [video.slug]);
 
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const loadMetadata = () => {
+      element.preload = "metadata";
+      element.load();
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      loadMetadata();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        loadMetadata();
+        observer.disconnect();
+      },
+      { rootMargin: "200px 0px" },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   const playMuted = () => {
     const element = ref.current;
     if (!element || state === "sound") return;
@@ -97,7 +123,7 @@ export function VideoCard({
             ref={ref}
             src={`/work/${video.slug}.mp4`}
             poster={`/work/${video.slug}.jpg`}
-            preload="auto"
+            preload="metadata"
             muted={state !== "sound"}
             loop
             playsInline
