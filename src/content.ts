@@ -168,6 +168,7 @@ export type PortfolioLabels = {
   play: string;
   stop: string;
   clickForSound: string;
+  seek: string;
 };
 
 export type PortfolioContent = {
@@ -199,6 +200,7 @@ const enLabels: PortfolioLabels = {
   play: "Play",
   stop: "Stop",
   clickForSound: "Click for sound",
+  seek: "Seek video",
 };
 
 export const localizedContent: Record<Locale, PortfolioContent> = {
@@ -284,6 +286,7 @@ export const localizedContent: Record<Locale, PortfolioContent> = {
       play: "Phát",
       stop: "Dừng",
       clickForSound: "Nhấn để bật tiếng",
+      seek: "Tua video",
     },
   },
 };
