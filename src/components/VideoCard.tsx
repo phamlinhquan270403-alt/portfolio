@@ -20,7 +20,7 @@ export function VideoCard({
 }: {
   video: Video;
   index: number;
-  labels: Pick<PortfolioLabels, "clickForSound" | "play" | "seek" | "soundOff" | "soundOn" | "stop">;
+  labels: Pick<PortfolioLabels, "seek" | "soundOff" | "soundOn">;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<"idle" | "muted" | "sound">("idle");
@@ -104,8 +104,6 @@ export function VideoCard({
     setCurrentTime(time);
   };
 
-  const label = state === "sound" ? `🔊 ${labels.soundOff}` : state === "muted" ? labels.clickForSound : `▶ ${labels.play}`;
-
   return (
     <figure className={horizontal ? "col-span-2" : ""}>
       <div
@@ -134,7 +132,6 @@ export function VideoCard({
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </button>
-        <span className={`absolute bottom-7 left-0 px-2 py-1 font-mono text-[11px] uppercase tracking-wide ${state === "sound" ? "bg-accent text-paper" : "bg-paper text-ink"}`}>{label}</span>
         <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-ink/70 px-2 py-1.5 text-paper">
           <button
             type="button"
