@@ -92,6 +92,21 @@ export const work: WorkGroup[] = [
     ],
   },
   {
+    id: "car-planet-uk",
+    title: "Car Planet UK",
+    meta: "Client work · Instagram Reels · 2026",
+    description: "Short-form Reels created for Car Planet UK, designed to showcase vehicles with a quick, social-first edit.",
+    link: { label: "@carplanetuk on Instagram", href: "https://www.instagram.com/carplanetuk/" },
+    videos: [
+      { slug: "carplanet-01", title: "Car Planet reel 01", tag: "Client reel" },
+      { slug: "carplanet-02", title: "Car Planet reel 02", tag: "Client reel" },
+      { slug: "carplanet-03", title: "Car Planet reel 03", tag: "Client reel" },
+      { slug: "carplanet-04", title: "Car Planet reel 04", tag: "Client reel" },
+      { slug: "carplanet-05", title: "Car Planet reel 05", tag: "Client reel" },
+      { slug: "carplanet-06", title: "Car Planet reel 06", tag: "Client reel" },
+    ],
+  },
+  {
     id: "ads",
     title: "Ads & product shorts",
     meta: "Client work · short-form",
@@ -274,6 +289,21 @@ export const localizedContent: Record<Locale, PortfolioContent> = {
           { slug: "ai-mwh-17", title: "MWH #17", tag: "Video AI" },
           { slug: "ai-mwh-18", title: "MWH #18", tag: "Video AI" },
           { slug: "ai-mwh-19", title: "MWH #19", tag: "Video AI" },
+        ],
+      },
+      {
+        id: "car-planet-uk",
+        title: "Car Planet UK",
+        meta: "Dự án khách hàng · Instagram Reels · 2026",
+        description: "Reels ngắn thực hiện cho Car Planet UK, tập trung giới thiệu xe bằng nhịp dựng nhanh, tối ưu cho mạng xã hội.",
+        link: { label: "@carplanetuk trên Instagram", href: "https://www.instagram.com/carplanetuk/" },
+        videos: [
+          { slug: "carplanet-01", title: "Car Planet reel 01", tag: "Reel khách hàng" },
+          { slug: "carplanet-02", title: "Car Planet reel 02", tag: "Reel khách hàng" },
+          { slug: "carplanet-03", title: "Car Planet reel 03", tag: "Reel khách hàng" },
+          { slug: "carplanet-04", title: "Car Planet reel 04", tag: "Reel khách hàng" },
+          { slug: "carplanet-05", title: "Car Planet reel 05", tag: "Reel khách hàng" },
+          { slug: "carplanet-06", title: "Car Planet reel 06", tag: "Reel khách hàng" },
         ],
       },
       {
