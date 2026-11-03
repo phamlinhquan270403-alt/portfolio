@@ -20,7 +20,7 @@ export function VideoCard({
 }: {
   video: Video;
   index: number;
-  labels: Pick<PortfolioLabels, "clickForSound" | "play" | "seek" | "stop">;
+  labels: Pick<PortfolioLabels, "clickForSound" | "play" | "seek" | "soundOff" | "soundOn" | "stop">;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<"idle" | "muted" | "sound">("idle");
@@ -61,9 +61,8 @@ export function VideoCard({
     const element = ref.current;
     if (!element) return;
     if (state === "sound") {
-      element.pause();
       element.muted = true;
-      setState("idle");
+      setState("muted");
       return;
     }
     window.dispatchEvent(new CustomEvent(SOUND_EVENT, { detail: video.slug }));
@@ -79,7 +78,7 @@ export function VideoCard({
     setCurrentTime(time);
   };
 
-  const label = state === "sound" ? `■ ${labels.stop}` : state === "muted" ? labels.clickForSound : `▶ ${labels.play}`;
+  const label = state === "sound" ? `🔊 ${labels.soundOff}` : state === "muted" ? labels.clickForSound : `▶ ${labels.play}`;
 
   return (
     <figure className={horizontal ? "col-span-2" : ""}>
@@ -91,25 +90,34 @@ export function VideoCard({
         <button
           type="button"
           onClick={toggleSound}
-          aria-label={`${state === "sound" ? labels.stop : labels.play} ${video.title}`}
+          aria-label={`${state === "sound" ? labels.soundOff : labels.soundOn}: ${video.title}`}
           className="block h-full w-full"
         >
           <video
             ref={ref}
             src={`/work/${video.slug}.mp4`}
             poster={`/work/${video.slug}.jpg`}
-            preload="metadata"
-            muted
+            preload="auto"
+            muted={state !== "sound"}
             loop
             playsInline
             onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
             onDurationChange={(event) => setDuration(event.currentTarget.duration)}
+            onCanPlay={(event) => setDuration(event.currentTarget.duration)}
             onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </button>
         <span className={`absolute bottom-7 left-0 px-2 py-1 font-mono text-[11px] uppercase tracking-wide ${state === "sound" ? "bg-accent text-paper" : "bg-paper text-ink"}`}>{label}</span>
         <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-ink/70 px-2 py-1.5 text-paper">
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={`${state === "sound" ? labels.soundOff : labels.soundOn}: ${video.title}`}
+            className="shrink-0 border border-paper px-1.5 py-0.5 font-mono text-[10px] uppercase hover:bg-paper hover:text-ink"
+          >
+            {state === "sound" ? "🔊" : "🔇"}
+          </button>
           <input
             type="range"
             min="0"
