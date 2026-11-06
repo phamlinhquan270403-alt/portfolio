@@ -107,6 +107,18 @@ export const work: WorkGroup[] = [
     ],
   },
   {
+    id: "talking-head",
+    title: "Talking-head Reels",
+    meta: "Client work · via a creative agency · 2026",
+    description:
+      "Talking-head Reels for business and wellness creators, including Michael Argento and Natasha Zuvela: kinetic captions, animated graphics and B-roll that keep the message moving.",
+    videos: [
+      { slug: "argento-01", title: "Michael Argento: finances ranked", tag: "Client reel" },
+      { slug: "argento-02", title: "Michael Argento: 7-8-figure finances", tag: "Client reel" },
+      { slug: "natasha-zuvela-01", title: "Natasha Zuvela", tag: "Client reel" },
+    ],
+  },
+  {
     id: "ads",
     title: "Ads & product shorts",
     meta: "Client work · short-form",
@@ -304,6 +316,18 @@ export const localizedContent: Record<Locale, PortfolioContent> = {
           { slug: "carplanet-04", title: "Car Planet reel 04", tag: "Reel khách hàng" },
           { slug: "carplanet-05", title: "Car Planet reel 05", tag: "Reel khách hàng" },
           { slug: "carplanet-06", title: "Car Planet reel 06", tag: "Reel khách hàng" },
+        ],
+      },
+      {
+        id: "talking-head",
+        title: "Reels talking-head",
+        meta: "Dự án khách hàng · qua agency sáng tạo · 2026",
+        description:
+          "Reels talking-head cho các creator lĩnh vực kinh doanh và sức khỏe, gồm Michael Argento và Natasha Zuvela: phụ đề động, đồ họa chuyển động và B-roll giữ nhịp cho thông điệp.",
+        videos: [
+          { slug: "argento-01", title: "Michael Argento: xếp hạng tài chính", tag: "Reel khách hàng" },
+          { slug: "argento-02", title: "Michael Argento: tài chính doanh nghiệp 7-8 con số", tag: "Reel khách hàng" },
+          { slug: "natasha-zuvela-01", title: "Natasha Zuvela", tag: "Reel khách hàng" },
         ],
       },
       {
